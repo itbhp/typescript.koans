@@ -19,29 +19,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hackages/typescript.koans.git"
+    "url": "git+https://github.com/itbhp/typescript.koans.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hackages/typescript.koans/issues"
-  },
-  "homepage": "https://github.com/hackages/typescript.koans#readme",
   "devDependencies": {
-    "@types/chai": "^3.4.34",
-    "@types/mocha": "^2.2.32",
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^9.4.7",
     "chai": "^3.5.0",
-    "imports-loader": "^0.6.5",
-    "live-server": "^1.1.0",
-    "mocha": "^3.1.2",
-    "npm-run-all": "^3.1.1",
-    "sinon": "^2.0.0-pre.4",
+    "mocha": "^3.5.3",
+    "ts-node": "^5.0.1",
     "ts-loader": "^1.2.2",
-    "ts-node": "^1.6.0",
     "ts-node-warnings": "^1.6.0",
     "tslint": "^3.15.1",
     "tslint-stylish": "^2.1.0-beta",
     "typescript": "^2.0.3",
+    "imports-loader": "^0.6.5",
+    "live-server": "^1.1.0",
+    "npm-run-all": "^3.1.1",
+    "sinon": "^2.0.0-pre.4",
     "watch": "^1.0.1",
     "webpack": "^1.13.3"
   }
