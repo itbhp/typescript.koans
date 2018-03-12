@@ -56,7 +56,8 @@ export function compact<T>(arr: T[]): T[] {
  *  _.head([1, 2, 3]) => 1
  *  _.head([]) => undefined
  */
-export function head() {
+export function head<T>(arr: T[]): T {
+  return arr[0];
 }
 
 /**
@@ -67,7 +68,8 @@ export function head() {
  *  _.initial<number>([1, 2, 3]) => [1, 2]
  *
  */
-export function initial() {
+export function initial<T>(arr: T[]): T[] {
+  return arr.slice(0, arr.length - 1);
 }
 
 /**
