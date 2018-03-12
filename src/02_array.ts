@@ -81,7 +81,8 @@ export function initial<T>(arr: T[]): T[] {
  * _.last([]) => undefined
  *
  */
-export function last() {
+export function last<T>(arr: T[]): T {
+  return arr[arr.length - 1];
 }
 
 /**
