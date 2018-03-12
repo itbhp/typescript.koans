@@ -12,3 +12,4 @@ lodash.d._ts
 dist/
 *.log
 .idea/
+package-lock.json
