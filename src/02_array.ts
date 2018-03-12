@@ -21,7 +21,14 @@
  *  _.chunk(["a", "b", "c", "d"], 3) => [["a", "b", "c"], ["d"]]
  *  _.chunk(["a", "b", "c"]) => [["a"], ["b"], ["c"]]
  * */
-export function chunk() {
+export function chunk<T>(arr: T[], size: number = 1): T[][] {
+  let length = arr.length;
+  let numberOfSubArrays = (length % size) === 0 ? (length / size) : Math.floor(length / size) + 1;
+  let res = [];
+  for (let i = 0; i < numberOfSubArrays; i++) {
+    res.push(arr.slice(i * size, (i + 1) * size ));
+  }
+  return res;
 }
 
 /**
