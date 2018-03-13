@@ -222,7 +222,20 @@ export function findIndex<T>(arr: T[], predicate: FindIndexPredicate<T>, index: 
  * _.findLastIndex([4, 6, 6, 8, 10], value => value === 6, 1) => 1
  *
  */
-export function findLastIndex() {
+export function findLastIndex<T>(arr: T[], predicate: FindIndexPredicate<T>, startIndex: number = arr.length - 1): number {
+  function loop<T>(index: number): number {
+    if (index === 0) {
+      return -1;
+    }
+
+    if (predicate(arr[index])) {
+      return index;
+    }
+
+    return loop(index - 1);
+  }
+
+  return loop(startIndex);
 }
 
 /**
