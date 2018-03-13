@@ -100,7 +100,7 @@ export function drop<T>(arr: T[], elementsToDrop: number = 1): T[] {
   //   return arr;
   // }
   // return drop(arr.slice(1), elementsToDrop - 1);
-  return dropWhile(arr, () => {let res = elementsToDrop > 0; elementsToDrop--; return res});
+  return dropWhile(arr, () => {let res = elementsToDrop > 0; elementsToDrop--; return res; });
 }
 
 /**
