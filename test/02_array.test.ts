@@ -67,7 +67,7 @@ describe("02_array", () => {
       expect(_.drop([1, 2, 3, 4], 2)).to.deep.equal([3, 4]);
     });
 
-    it("zz should default to one item", () => {
+    it("should default to one item", () => {
       expect(_.drop([1, 2, 3, 4])).to.deep.equal([2, 3, 4]);
     });
   });

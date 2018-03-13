@@ -177,7 +177,8 @@ export function fill<T>(arr: any[], value: T, fromIncluded: number, toExcluded: 
 }
 
 // Here we define an interface for the predicate used in the findIndex function.
-export interface FindIndexPredicate {
+export interface FindIndexPredicate<T> {
+  (value: T): boolean;
 }
 
 /**
@@ -193,7 +194,20 @@ export interface FindIndexPredicate {
  * _.findIndex([4, 6, 6, 8, 10], value => value === 6, 2) => 2
  *
  */
-export function findIndex() {
+export function findIndex<T>(arr: T[], predicate: FindIndexPredicate<T>, index: number = 0): number {
+  function loop<T>(arr: T[], predicate: FindIndexPredicate<T>, index: number): number {
+    if (arr.length === 0) {
+      return -1;
+    }
+
+    if (predicate(head(arr))) {
+      return index;
+    }
+
+    return loop(arr.slice(1), predicate, index + 1);
+  }
+
+  return loop(arr.slice(index), predicate, index);
 }
 
 /**
