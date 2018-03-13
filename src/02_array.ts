@@ -167,7 +167,13 @@ export function dropRightWhile<T>(arr: T[], predicate: DropWhilePredicate<T>): T
  * ## Examples
  * _.fill<any>([4, 6, 8, 10], "* ", 1, 3) => [4, "* ", "* ", 10]
  */
-export function fill() {
+export function fill<T>(arr: any[], value: T, fromIncluded: number, toExcluded: number): any[] {
+  return arr.map((o, i) => {
+    if (i >= fromIncluded && i < toExcluded)
+     return value;
+    else
+     return o;
+  });
 }
 
 // Here we define an interface for the predicate used in the findIndex function.
