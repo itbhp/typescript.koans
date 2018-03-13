@@ -249,7 +249,8 @@ export function findLastIndex<T>(arr: T[], predicate: FindIndexPredicate<T>, sta
  * _.nth<number>([1, 2, 3]) => 1
  *
  */
-export function nth() {
+export function nth<T>(arr: T[], index: number = 0): T {
+  return arr[index];
 }
 
 /**
