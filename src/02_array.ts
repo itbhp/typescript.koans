@@ -195,19 +195,19 @@ export interface FindIndexPredicate<T> {
  *
  */
 export function findIndex<T>(arr: T[], predicate: FindIndexPredicate<T>, index: number = 0): number {
-  function loop<T>(arr: T[], predicate: FindIndexPredicate<T>, index: number): number {
-    if (arr.length === 0) {
+  function loop<T>(index: number): number {
+    if (index === arr.length) {
       return -1;
     }
 
-    if (predicate(head(arr))) {
+    if (predicate(arr[index])) {
       return index;
     }
 
-    return loop(arr.slice(1), predicate, index + 1);
+    return loop(index + 1);
   }
 
-  return loop(arr.slice(index), predicate, index);
+  return loop(index);
 }
 
 /**
