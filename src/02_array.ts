@@ -114,7 +114,13 @@ export function drop<T>(arr: T[], elementsToDrop: number = 1): T[] {
  *
  */
 export function dropRight<T>(arr: T[], elementsToDrop: number = 1): T[] {
-  return arr.slice(0, arr.length - elementsToDrop);
+  // return arr.slice(0, arr.length - elementsToDrop);
+  // if (elementsToDrop === 0) {
+  //   return arr;
+  // }
+
+  // return dropRight(initial(arr), elementsToDrop - 1);
+  return dropRightWhile(arr, () => {let res = elementsToDrop > 0; elementsToDrop--; return res; });
 }
 
 interface DropWhilePredicate<T> {
@@ -145,7 +151,12 @@ export function dropWhile<T>(collection: Array<T>, predicate: DropWhilePredicate
  * _.dropRightWhile([5, 4, 3, 2, 1], value => value < 3) => [5, 4, 3]
  *
  */
-export function dropRightWhile() {
+export function dropRightWhile<T>(arr: T[], predicate: DropWhilePredicate<T>): T[] {
+  if (!predicate(last(arr))) {
+    return arr;
+  }
+
+  return dropRightWhile(initial(arr), predicate);
 }
 
 /**
