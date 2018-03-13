@@ -260,5 +260,6 @@ export function nth<T>(arr: T[], index: number = 0): T {
  * // We can also use something called "union types" here.
  * _.zip<string | number | boolean>(["a", "b"], [1, 2], [true, false]) => [["a", 1, true], ["b", 2, false]]
  */
-export function zip() {
+export function zip<A, B, C>(arr1: A[], arr2: B[], arr3: C[]): any[][] {
+  return arr1.map( (o, i) => [o , arr2[i], arr3[i]]);
 }
