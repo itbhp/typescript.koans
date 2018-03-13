@@ -95,7 +95,12 @@ export function last<T>(arr: T[]): T {
  * _.drop([1, 2, 3, 4], 2) => [3, 4]
  * _.drop([1, 2, 3, 4]) => [2, 3, 4]
  */
-export function drop() {
+export function drop<T>(arr: T[], elementsToDrop: number = 1): T[] {
+  // if ( elementsToDrop === 0 ) {
+  //   return arr;
+  // }
+  // return drop(arr.slice(1), elementsToDrop - 1);
+  return dropWhile(arr, () => {let res = elementsToDrop > 0; elementsToDrop--; return res});
 }
 
 /**
@@ -108,7 +113,8 @@ export function drop() {
  * _.dropRight([1, 2, 3, 4]) => [1, 2, 3]
  *
  */
-export function dropRight() {
+export function dropRight<T>(arr: T[], elementsToDrop: number = 1): T[] {
+  return arr.slice(0, arr.length - elementsToDrop);
 }
 
 interface DropWhilePredicate<T> {
@@ -124,6 +130,10 @@ interface DropWhilePredicate<T> {
 *
 */
 export function dropWhile<T>(collection: Array<T>, predicate: DropWhilePredicate<T>): Array<T> {
+  if ( !predicate(head(collection))) {
+    return collection;
+  }
+  return dropWhile(collection.slice(1), predicate);
 }
 
 /**
