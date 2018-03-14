@@ -169,7 +169,8 @@ export function dropRightWhile<T>(arr: T[], predicate: DropWhilePredicate<T>): T
  */
 export function fill<T>(arr: any[], value: T, fromIncluded: number, toExcluded: number): any[] {
   return arr.map((o, i) => {
-    if (i >= fromIncluded && i < toExcluded)
+    const inRange = i >= fromIncluded && i < toExcluded;
+    if (inRange)
      return value;
     else
      return o;
